@@ -12,7 +12,6 @@ services:
       - kafka
       - mongodb
     environment:
-      #- kafka.producer.bootstrap-servers=kafka:9092
       - kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
       - kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
       - kafka.consumer.group-id=bankaccConsumer

@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "0690beea-0199-4028-aaa0-c08c74416acb",
+		"name": "CQRS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Open a Bank Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountHolder\" : \"Account Holder 1\",\r\n    \"accountType\" : \"SAVINGS\",\r\n    \"openingBalance\" : 50.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/openBankAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"openBankAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit Fund to Account",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\" : 150.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/depositFunds/34dae1f5-6388-4a5f-af1c-3fe8e447b258",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"depositFunds",
+						"34dae1f5-6388-4a5f-af1c-3fe8e447b258"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw Fund from Account",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\" : 50.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/withdrawFunds/34dae1f5-6388-4a5f-af1c-3fe8e447b258",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"withdrawFunds",
+						"34dae1f5-6388-4a5f-af1c-3fe8e447b258"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/closeBankAccount/34dae1f5-6388-4a5f-af1c-3fe8e447b258",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"closeBankAccount",
+						"34dae1f5-6388-4a5f-af1c-3fe8e447b258"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query - Get All Accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query - Get Account By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/byId/95be2b94-caa6-41eb-a65d-8c394b415cec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"byId",
+						"95be2b94-caa6-41eb-a65d-8c394b415cec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query - Get Account By Holder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/byHolder/Account Holder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"byHolder",
+						"Account Holder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query - Get Account With Balance (GREATER_THAN)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/withBalance/GREATER_THAN/30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"withBalance",
+						"GREATER_THAN",
+						"30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query - Get Account With Balance (LESS_THAN)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/withBalance/LESS_THAN/60",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"withBalance",
+						"LESS_THAN",
+						"60"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
