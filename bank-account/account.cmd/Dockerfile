@@ -10,5 +10,5 @@ RUN ./mvnw package -Dmaven.test.skip
 
 FROM openjdk:17-jdk-slim
 WORKDIR account-cmd
-COPY --from=build target/*.jar account-cmd.jar
-ENTRYPOINT ["java", "-jar", "account-cmd.jar"]
+COPY --from=build target/*.jar account.cmd.jar
+ENTRYPOINT ["java", "-jar", "account.cmd.jar"]
