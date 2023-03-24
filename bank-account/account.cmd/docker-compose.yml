@@ -35,7 +35,7 @@ services:
       - bankAccount
 
   zookeeper:
-    image: "bitnami/zookeeper"
+    image: "docker.io/bitnami/zookeeper:3"
     restart: always
     ports:
       - "2181:2181"
