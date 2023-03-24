@@ -1,0 +1,75 @@
+version: '3.9'
+
+services:
+  app:
+    image: 'account-cmd:latest'
+    build:
+      context: .
+    ports:
+      - "5000:8080"
+    depends_on:
+      - zookeeper
+      - kafka
+      - mongodb
+    environment:
+      - kafka.producer.bootstrap-servers=broker:9092
+      - kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+      - kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
+      - spring.data.mongodb.host=mongodb
+      - spring.data.mongodb.port=27017
+      - spring.data.mongodb.database=bankAccount
+      - server.port=5000
+    networks:
+      - bankAccount
+
+
+  mongodb:
+    image: "mongo:latest"
+    container_name: mongo-container
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_container:/data/db
+    networks:
+      - bankAccount
+
+  zookeeper:
+    image: "bitnami/zookeeper"
+    restart: always
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - bankAccount
+
+  kafka:
+    image: "bitnami/kafka"
+    ports:
+      - "9092:9092"
+    restart: always
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+    depends_on:
+      - zookeeper
+    networks:
+      - bankAccount
+
+
+volumes:
+  mongodb_data_container:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+
+networks:
+  bankAccount:
