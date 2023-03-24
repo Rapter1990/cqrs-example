@@ -12,7 +12,7 @@ services:
       - kafka
       - mongodb
     environment:
-      - kafka.producer.bootstrap-servers=broker:9092
+      #- kafka.producer.bootstrap-servers=kafka:9092
       - kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
       - kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
       - kafka.consumer.group-id=bankaccConsumer
@@ -66,6 +66,7 @@ services:
       - KAFKA_LISTENERS=INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
       - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - kafka.bootstrap.servers=broker:9092
     depends_on:
       - zookeeper
     networks:
