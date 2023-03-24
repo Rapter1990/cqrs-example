@@ -15,6 +15,7 @@ services:
       - kafka.producer.bootstrap-servers=broker:9092
       - kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
       - kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
+      - kafka.consumer.group-id=bankaccConsumer
       - spring.data.mongodb.host=mongodb
       - spring.data.mongodb.port=27017
       - spring.data.mongodb.database=bankAccount
