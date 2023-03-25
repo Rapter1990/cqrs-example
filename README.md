@@ -13,7 +13,7 @@ There are 2 ways to run the app.
 4. Go to the project's home directory :  `cd cqrs-example`
 5. Go to the account.cmd of bank-account :  `cd bank-account` and then `cd account.cmd`
 6. Go to the account.query of bank-account :  `cd bank-account` and then `cd account.query`
-7. Create a jar file though this command under both directories `mvn clean install`
+7. Create a jar file under both directories though this command  `mvn clean install`
 8. Run the project though this command `mvn spring-boot:run`
 9. Send any request of collection under postman collections folder through Postman 
 
