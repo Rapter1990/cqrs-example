@@ -1,10 +1,10 @@
 version: '3.9'
 
 services:
-  app:
+  account-cmd:
     image: 'account-cmd:latest'
     build:
-      context: .
+      context: ./account.cmd
     ports:
       - "5000:5000"
     depends_on:
@@ -20,6 +20,47 @@ services:
       - server.port=5000
     networks:
       - bankAccount
+
+  account-query:
+    image: 'account-query:latest'
+    build:
+      context: ./account.query
+    ports:
+      - "5001:5001"
+    depends_on:
+      - zookeeper
+      - kafka
+      - database
+    environment:
+      - spring.datasource.url=jdbc:mysql://database:3306/bankAccount?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      - server.port=5001
+      - spring.datasource.username=root
+      - spring.datasource.password=ippavlova_1990
+      - spring.kafka.consumer.group-id=bankaccConsumer
+      - spring.kafka.consumer.auto-offset-reset=earliest
+      - spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+      - spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.JsonDeserializer
+      - spring.kafka.consumer.properties.spring.json.trusted.packages=*
+    networks:
+      - bankAccount
+
+  database:
+    container_name: mysql-database
+    image: 'mysql:latest'
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_PASSWORD: ippavlova_1990
+      MYSQL_ROOT_PASSWORD: ippavlova_1990
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - bankAccount
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
 
 
   mongodb:
@@ -63,6 +104,7 @@ services:
 
 volumes:
   mongodb_data_container:
+  db-data:
   zookeeper_data:
     driver: local
   kafka_data:
