@@ -18,7 +18,7 @@ services:
       - spring.data.mongodb.port=27017
       - spring.data.mongodb.database=bankAccount
       - server.port=5000
-      - spring.kafka.bootstrap-servers=kafka:9092
+      - spring.kafka.producer.bootstrap-servers=kafka:9092
     networks:
       - bankAccount
 
