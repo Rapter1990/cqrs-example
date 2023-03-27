@@ -217,13 +217,14 @@ There are 2 ways to run the app.
 
 1. Install mysql in your computer
 2. Install mongodb in your computer
-3. Download your project from this link `https://github.com/Rapter1990/cqrs-example`
-4. Go to the project's home directory :  `cd cqrs-example`
-5. Go to the bank-account :  `cd bank-account`
-6. Create a jar file under bank-account directory though this command  `mvn clean install`
-7. Run the project though this command `mvn spring-boot:run`
-8. Send any request of collection under postman collections folder through Postman 
-9. Show data from both mongodb by following all these commands shown below
+3. Run only Zookeeper and Apache Kafka from docker-compose.yml file
+4. Download your project from this link `https://github.com/Rapter1990/cqrs-example`
+5. Go to the project's home directory :  `cd cqrs-example`
+6. Go to the bank-account :  `cd bank-account`
+7. Create a jar file under bank-account directory though this command  `mvn clean install`
+8. Run the project though this command `mvn spring-boot:run`
+9. Send any request of collection under postman collections folder through Postman 
+10. Show data from both mongodb by following all these commands shown below
 ```
     -> Open Mongodb Comprass
     -> Create a new connection (mongodb://localhost:27017)
