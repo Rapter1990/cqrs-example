@@ -1,6 +1,6 @@
 # Spring Boot CQRS Example (Docker, Apache Kafka, Zookeeper, MYSQL, MongoDB)
 
-<img src="screenshots/main_figure.png" alt="Main Information" width="800" height="500">
+<img src="screenshots/main_figure.png" alt="Main Information" width="800" height="600">
 
 ### 📖 Information
 
