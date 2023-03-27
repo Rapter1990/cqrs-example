@@ -28,6 +28,7 @@
       <td><a href="README.md#openBankAccount">Info</a></td>
       <td></td>
       <td></td>
+      <td></td>
   </tr>
   <tr>
       <td>PUT</td>
@@ -36,12 +37,14 @@
       <td></td>
       <td></td>
       <td><a href="README.md#deposit">Info</a></td>
+      <td></td>
   </tr>
   <tr>
       <td>PUT</td>
       <td>/api/v1/withdrawFunds/{id}</td>
       <td>Withdraw Fund from Account</td>
       <td><a href="README.md#withdraw">Info</a></td>
+      <td></td>
       <td></td>
       <td></td>
   </tr>
@@ -52,11 +55,13 @@
       <td></td>
       <td><a href="README.md#closeAccount">Info</a></td>
       <td></td>
+      <td></td>
   </tr>
   <tr>
       <td>GET</td>
       <td>/api/v1/bankAccountLookup/</td>
       <td>Get All Accounts</td>
+      <td></td>
       <td></td>
       <td></td>
       <td><a href="README.md#getAllAccount">Info</a></td>
@@ -68,12 +73,14 @@
       <td><a href="README.md#getAccountById">Info</a></td>
       <td></td>
       <td></td>
+      <td></td>
   </tr>
   <tr>
       <td>GET</td>
       <td>/api/v1/bankAccountLookup/byHolder/{account_holder}</td>
       <td>Get Account By Holder</td>
       <td><a href="README.md#getAccountByHolder">Info</a></td>
+      <td></td>
       <td></td>
       <td></td>
   </tr>
@@ -84,6 +91,7 @@
       <td><a href="README.md#getAccountByBalanceGreatherThen">Info</a></td>
       <td></td>
       <td></td>
+      <td></td>
   </tr>
   <tr>
       <td>GET</td>
@@ -92,11 +100,13 @@
       <td><a href="README.md#getAccountByBalanceLessThen">Info</a></td>
       <td></td>
       <td></td>
+      <td></td>
   </tr>
   <tr>
       <td>GET</td>
       <td>/api/v1/restoreReadDb</td>
       <td>Restore Database By Read</td>
+      <td></td>
       <td></td>
       <td></td>
       <td><a href="README.md#restoreDatabaseByRead">Info</a></td>
