@@ -262,8 +262,6 @@ There are 2 ways to run the app.
     -> SELECT * FROM bank_account;
 ```
 
-### Show data from both mongodb and 
-
 ### Screenshots
 
 <details>
