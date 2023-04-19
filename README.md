@@ -253,7 +253,7 @@ There are 2 ways to run the app.
     -> show collections
     -> db.eventStore.find({})
 ```
-7. Show data from both mongodb by following all these commands shown below
+7. Show data from both mysql by following all these commands shown below
 ```
     -> docker exec -it mysql-database mysql -uroot -p
     -> Enter password: password defined in database
