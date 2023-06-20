@@ -147,7 +147,6 @@
 ```
     http://localhost:5000/api/v1/closeBankAccount/{id}
     
-    Bearer Token : User Token
 ```
 
 ##### <a id="getAccountById">Get Account By Id
